@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /home/jddbetambo/DEVOPS_LINUX/VIRTUAL_VOLUME/mongo_vol
+    path: /mongo_pv
 
 ---
 apiVersion: v1
