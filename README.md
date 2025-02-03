@@ -51,6 +51,10 @@ kubectl apply -f configmap.yaml
 kubectl get cm # List of configMaps in the current namespace
 ```
 
+<p align="center">
+    <img src="images/cm1.png">
+</p>
+
 2. Create the Secret Resource Object
 In the root of the Project folder, there is a manifest file `secret.yaml` for the Secret resource object.
 
@@ -61,6 +65,11 @@ kubectl apply -f secret.yaml
 ```bash
 kubectl get secrets # List of secrets in the current namespace
 ```
+
+<p align="center">
+    <img src="images/secret1.png">
+</p>
+
 3. Create the PV and PVC
 CD into the folder `pv` where there is a file `pv-pvc.yaml` and execute the following command .
 
@@ -69,8 +78,20 @@ kubectl apply -f pv-pvc.yaml
 ```
 
 ```bash
-kubectl get pv # List of secrets in the current namespace
+kubectl get pv # List of pv in the current namespace
 ```
+
+```bash
+kubectl get pvc # List of pvc in the current namespace
+```
+
+<p align="center">
+    <img src="images/pv.png">
+</p>
+
+<p align="center">
+    <img src="images/pvc.png">
+</p>
 
 4. Deployment of MongoDB and Mongo-Express
 CD to the folder `db` and execute the following commands.
@@ -85,12 +106,20 @@ kubectl apply -f mongo_express.yaml
 ```
 
 ```bash
+kubectl get deployment # List of deployments in the current namespace
+```
+
+```bash
 kubectl get pods # List of pods in the current namespace
 ```
 
 ```bash
 kubectl get svc # List of services in the current namespace
 ```
+
+<p align="center">
+    <img src="images/mongo.png">
+</p>
 
 5. Deployment of the webapp
 CD into the app folder and execute the following command.
@@ -98,12 +127,46 @@ CD into the app folder and execute the following command.
 ```bash
 kubectl apply -f webapp.yaml
 ```
+
+```bash
+kubectl get deployment # List of deployments in the current namespace
+```
+
 ```bash
 kubectl get pods # List of pods in the current namespace
 ```
 
 ```bash
 kubectl get svc # List of services in the current namespace
+```
+
+<p align="center">
+    <img src="images/webapp.png">
+</p>
+
+## Results
+
+1. Access to Mongo-Express
+Minikube is used here.
+<p align="center">
+    <img src="images/mongoEx1.png">
+</p>
+
+<p align="center">
+    <img src="images/mongoEx2.png">
+</p>
+
+2. Access to Webapp
+
+<p align="center">
+    <img src="images/webapp2.png">
+</p>
+
+
+## Cleanup
+
+```bash
+kubectl delete all --all
 ```
 
 </div>
