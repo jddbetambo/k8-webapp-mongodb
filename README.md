@@ -104,9 +104,6 @@ kubectl get pvc # List of pvc in the current namespace
     <img src="images/pv.png">
 </p>
 
-<p align="center">
-    <img src="images/pvc.png">
-</p>
 
 4. Deployment of MongoDB and Mongo-Express
 
