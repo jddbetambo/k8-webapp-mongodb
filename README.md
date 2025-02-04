@@ -41,6 +41,7 @@ Mongo-Express is an interactive lightweight Web-Based Administrative Tool to eff
 
 ## Project Deployment
 1. Create ConfigMap Resource Object
+
 In the root of the Project folder, there is a manifest file `configmap.yaml` for the ConfigMap resource object.
 
 ```bash
@@ -56,6 +57,7 @@ kubectl get cm # List of configMaps in the current namespace
 </p>
 
 2. Create the Secret Resource Object
+
 In the root of the Project folder, there is a manifest file `secret.yaml` for the Secret resource object.
 
 ```bash
@@ -71,7 +73,20 @@ kubectl get secrets # List of secrets in the current namespace
 </p>
 
 3. Create the PV and PVC
-CD into the folder `pv` where there is a file `pv-pvc.yaml` and execute the following command .
+
+- Connect or SSH into each node to create a folder for MongoDB data.
+
+```bash
+ssh -i <your_key_pair> <username>@<Node_IP>
+```
+
+```bash
+sudo mkdir -p /mnt/kubernetes/volumes/mongo_data
+```
+
+**This must be done on each node of the cluster.**
+
+- CD into the folder `pv` where there is a file `pv-pvc.yaml` and execute the following command.
 
 ```bash
 kubectl apply -f pv-pvc.yaml
@@ -94,6 +109,7 @@ kubectl get pvc # List of pvc in the current namespace
 </p>
 
 4. Deployment of MongoDB and Mongo-Express
+
 CD to the folder `db` and execute the following commands.
 
 ```bash
@@ -122,6 +138,7 @@ kubectl get svc # List of services in the current namespace
 </p>
 
 5. Deployment of the webapp
+
 CD into the app folder and execute the following command.
 
 ```bash
@@ -147,6 +164,7 @@ kubectl get svc # List of services in the current namespace
 ## Results
 
 1. Access to Mongo-Express
+
 Minikube is used here.
 <p align="center">
     <img src="images/mongoEx1.png">
@@ -167,6 +185,26 @@ Minikube is used here.
 
 ```bash
 kubectl delete all --all
+```
+
+```bash
+kubectl delete secret mongodb-secret
+```
+
+```bash
+kubectl delete secret mongo-express-secret
+```
+
+```bash
+kubectl delete cm mongodb-configmap
+```
+
+```bash
+kubectl delete pv mongo-pv
+```
+
+```bash
+kubectl delete pvc mongo-pvc
 ```
 
 </div>

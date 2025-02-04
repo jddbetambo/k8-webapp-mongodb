@@ -9,7 +9,7 @@ spec:
     - ReadWriteOnce
   persistentVolumeReclaimPolicy: Retain
   hostPath:
-    path: /mongo_pv
+    path: /mnt/kubernetes/volumes/mongo_data
 
 ---
 apiVersion: v1
